@@ -1,33 +1,56 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
   margin: 0;
-  padding: 0;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #004F2D; /* Deep green for text */
 }
 
-.header {
-  background-color: #222;
-  padding: 20px;
+header {
+  background-color: #f47321; /* Miami orange */
+  padding: 1rem 2rem;
   color: white;
-}
-
-.header h1 {
-  margin: 0;
-}
-
-.header nav ul {
-  list-style: none;
-  padding: 0;
   display: flex;
-  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.header nav ul li a {
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
   color: white;
-  text-decoration: none;
 }
 
-main {
-  padding: 20px;
+nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #004F2D; /* Miami green on hover */
+}
+
+section {
+  padding: 2rem;
+  background-color: #f7f7f7;
+  min-height: 80vh;
+}
+
+h2 {
+  color: #004F2D;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
