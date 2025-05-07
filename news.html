@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Latest News</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Influencer Connect</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="news.html">News</a>
+      <a href="apply.html">Apply</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Latest Industry News</h2>
+    <div id="news"></div>
+  </section>
+
+  <script>
+    async function fetchNews() {
+      const response = await fetch('https://inshorts.deta.dev/news?category=technology'); // Open-source API
+      const data = await response.json();
+      const container = document.getElementById('news');
+      data.data.slice(0, 5).forEach(article => {
+        const card = document.createElement('div');
+        card.innerHTML = `
+          <h3>${article.title}</h3>
+          <p>${article.content}</p>
+          <a href="${article.readMoreUrl}" target="_blank">Read More</a>
+          <hr/>
+        `;
+        container.appendChild(card);
+      });
+    }
+    fetchNews();
+  </script>
+</body>
+</html>
