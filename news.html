@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News – Influencer Connect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>News | Influencer Connect</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,31 +12,18 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="news.html">News</a>
+      <a href="news.html" class="active">News</a>
       <a href="apply.html">Apply</a>
     </nav>
   </header>
 
-  <section>
-    <h2>Industry News</h2>
-    <div id="news-container">
-      <p>Loading trending news articles...</p>
-    </div>
-  </section>
+  <main>
+    <section class="news-section">
+      <h2>Industry News</h2>
+      <div id="news-container">Loading trending news articles...</div>
+    </section>
+  </main>
 
-  <script>
-    fetch('https://inshortsapi.vercel.app/news?category=business')
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById('news-container');
-        container.innerHTML = '';
-        data.data.slice(0, 5).forEach(article => {
-          const div = document.createElement('div');
-          div.className = 'news-article';
-          div.innerHTML = `<h3>${article.title}</h3><p>${article.content}</p><a href="${article.readMoreUrl}" target="_blank">Read more</a>`;
-          container.appendChild(div);
-        });
-      });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
