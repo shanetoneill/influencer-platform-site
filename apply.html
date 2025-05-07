@@ -1,9 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Apply - Influencer Connect</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: left;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, textarea {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+    button {
+      background-color: #207A34;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #12501f;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -15,37 +45,29 @@
       <a href="apply.html">Apply</a>
     </nav>
   </header>
+  <main>
+    <div class="content-box">
+      <h2>Apply to Collaborate</h2>
+      <form>
+        <label for="role">I am a:</label>
+        <select id="role">
+          <option>Select one</option>
+          <option>Influencer</option>
+          <option>Brand</option>
+        </select>
 
-  <main class="content-box">
-    <h2>Apply to Collaborate</h2>
-    <form id="apply-form" onsubmit="submitForm(event)">
-      <label for="role">I am a:</label>
-      <select id="role" name="role" required>
-        <option value="">Select one</option>
-        <option value="Brand">Brand</option>
-        <option value="Influencer">Influencer</option>
-      </select>
+        <label for="name">Name:</label>
+        <input type="text" id="name">
 
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email">
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone">
 
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" required />
-
-      <button type="submit">Submit</button>
-    </form>
-    <p id="thank-you" style="display:none; margin-top:20px;">Thank you for applying! We'll be in touch.</p>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </main>
-
-  <script>
-    function submitForm(event) {
-      event.preventDefault();
-      document.getElementById('apply-form').style.display = 'none';
-      document.getElementById('thank-you').style.display = 'block';
-    }
-  </script>
 </body>
 </html>
