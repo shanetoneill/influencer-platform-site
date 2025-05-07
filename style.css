@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #00703c, #f47321);
-  color: #111;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #006C3B, #F15A24);
+  min-height: 100vh;
 }
 
 header {
