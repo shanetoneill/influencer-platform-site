@@ -1,16 +1,16 @@
+/* Gradient background */
 body {
+  font-family: 'Helvetica Neue', sans-serif;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #f5f9f6, #f5f9f6, #f5f9f6, #f5f9f6, #f5f9f6);
-  color: #111;
+  background: linear-gradient(135deg, #008E4F, #F47321);
+  color: #222;
 }
 
-/* Header Navigation */
 header {
+  background: #f8fefc;
+  padding: 20px;
   text-align: center;
-  padding: 20px 0 10px;
-  background: linear-gradient(to right, #f5f9f6, #f5f9f6);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
 header h1 {
@@ -25,63 +25,45 @@ nav {
 nav a {
   margin: 0 15px;
   text-decoration: none;
+  color: #006B3F;
   font-weight: bold;
-  color: #00703C; /* UM green */
-  transition: color 0.3s ease;
 }
 
-nav a:hover,
-nav a.active {
-  color: #F47321; /* UM orange */
+nav a.active,
+nav a:hover {
+  color: #F47321;
 }
 
-/* Main Section */
-main {
-  padding: 40px 20px;
-  background: linear-gradient(to bottom right, #00703C, #F47321);
-  min-height: 90vh;
-}
-
-/* News Card Styles */
 .news-section {
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 50px auto;
   background: #fefefe;
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
 .news-section h2 {
   text-align: center;
-  font-size: 2rem;
   margin-bottom: 20px;
 }
 
-.news-card {
-  background-color: #ffffff;
-  padding: 20px;
+.news-item {
   margin-bottom: 20px;
-  border-left: 5px solid #00703C;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  border-radius: 10px;
 }
 
-.news-card h3 {
-  margin: 0;
-  font-size: 1.25rem;
-}
-
-.news-card h3 a {
+.news-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #006B3F;
   text-decoration: none;
-  color: #00703C;
 }
 
-.news-card h3 a:hover {
-  color: #F47321;
+.news-title:hover {
+  text-decoration: underline;
 }
 
-.news-card p {
-  margin-top: 10px;
-  color: #333;
+.news-source {
+  font-size: 0.9rem;
+  color: #777;
 }

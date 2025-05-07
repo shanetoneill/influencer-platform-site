@@ -1,33 +1,37 @@
-const apiKey = "e922db8a731a4014a7e2127907842954";
-const endpoint = `https://newsapi.org/v2/top-headlines?category=technology&pageSize=5&language=en&apiKey=${apiKey}`;
+document.addEventListener("DOMContentLoaded", () => {
+  const newsContainer = document.getElementById("news");
+  const apiKey = "8555908805786fd1bf9aa885ce64c943";
+  const url = `https://gnews.io/api/v4/top-headlines?lang=en&country=us&token=${apiKey}`;
 
-async function loadNews() {
-  try {
-    const res = await fetch(endpoint);
-    const data = await res.json();
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (!data.articles || data.articles.length === 0) {
+        newsContainer.innerHTML = "<p>No news articles available.</p>";
+        return;
+      }
 
-    const container = document.getElementById("news-container");
-    container.innerHTML = "";
+      newsContainer.innerHTML = "";
+      data.articles.forEach(article => {
+        const newsItem = document.createElement("div");
+        newsItem.className = "news-item";
 
-    if (data.articles.length === 0) {
-      container.innerHTML = "<p>No news articles found.</p>";
-      return;
-    }
+        const title = document.createElement("a");
+        title.href = article.url;
+        title.target = "_blank";
+        title.textContent = article.title;
+        title.className = "news-title";
 
-    data.articles.forEach(article => {
-      const div = document.createElement("div");
-      div.className = "news-card";
-      div.innerHTML = `
-        <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
-        <p>${article.description || "No summary available."}</p>
-      `;
-      container.appendChild(div);
+        const source = document.createElement("p");
+        source.textContent = `Source: ${article.source.name}`;
+        source.className = "news-source";
+
+        newsItem.appendChild(title);
+        newsItem.appendChild(source);
+        newsContainer.appendChild(newsItem);
+      });
+    })
+    .catch(error => {
+      newsContainer.innerHTML = `<p>Error loading news: ${error.message}</p>`;
     });
-  } catch (error) {
-    document.getElementById("news-container").innerHTML = `<p>Error loading news: ${error.message}</p>`;
-  }
-}
-
-if (document.getElementById("news-container")) {
-  loadNews();
-}
+});
