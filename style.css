@@ -1,145 +1,100 @@
-/* Reset base styles */
-* {
+/* Base Reset and Font */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Helvetica Neue', sans-serif;
-  background: linear-gradient(to bottom right, #dff3e3, #fff3e6);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #00a368, #f47321);
+  background-attachment: fixed;
   color: #1a1a1a;
-  line-height: 1.6;
-  min-height: 100vh;
 }
 
-/* Header / Nav */
+/* Header */
 header {
-  background-color: #002f24; /* dark green (UM primary) */
-  color: #ffffff;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-header h1 {
-  font-size: 1.8rem;
-  color: #ffffff;
-}
-
-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  margin-left: 2rem;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #f47321; /* UM orange */
-}
-
-/* General Section Styling */
-section {
-  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-bottom: 4px solid;
+  border-image: linear-gradient(to right, #00a368, #f47321) 1;
   text-align: center;
 }
 
-/* Headlines */
+/* Site Title */
+header h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+/* Navigation */
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #00a368;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.2s ease-in-out;
+}
+
+nav a:hover {
+  color: #f47321;
+}
+
+/* Main Content Section */
+section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Headings */
 h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #003e2f;
+  font-size: 32px;
+  color: #1a1a1a;
+  margin-bottom: 20px;
 }
 
 /* Paragraphs */
 p {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
 }
 
-/* About section layout */
-.about-section {
-  max-width: 800px;
+/* Form Styling (for Apply tab) */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
-/* Form Styling */
-form {
-  background-color: #ffffffcc;
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 500px;
-  margin: 2rem auto;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-}
-
-form input,
-form select {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
+input, select {
+  padding: 12px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 1rem;
+  outline: none;
 }
 
-form button {
-  background-color: #f47321; /* UM orange */
-  color: #fff;
+input[type="submit"] {
+  background: #00a368;
+  color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
+  transition: background 0.3s ease;
 }
 
-form button:hover {
-  background-color: #cc5e1a;
-}
-
-/* News articles */
-.news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 700px;
-  margin: 2rem auto;
-}
-
-.news-item {
-  background: #fff;
-  border-left: 4px solid #f47321;
-  padding: 1rem;
-  text-align: left;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.news-item h3 {
-  font-size: 1.2rem;
-  color: #002f24;
-}
-
-.news-item a {
-  color: #f47321;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.news-item a:hover {
-  text-decoration: underline;
-}
-
-/* Footer or success message styling */
-.success-message {
-  color: #006d5b;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 2rem;
+input[type="submit"]:hover {
+  background: #f47321;
 }
