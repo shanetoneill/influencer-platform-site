@@ -1,26 +1,33 @@
-const apiKey = "e922db8a731a4014a7e2127907842954";
-const newsContainer = document.getElementById("newsContainer");
+document.addEventListener("DOMContentLoaded", function () {
+  const newsContainer = document.getElementById("news-container");
 
-fetch(`https://newsapi.org/v2/top-headlines?category=business&language=en&pageSize=5&apiKey=${apiKey}`)
-  .then(response => response.json())
-  .then(data => {
-    if (!data.articles || data.articles.length === 0) {
-      newsContainer.innerHTML = "<p>No articles found.</p>";
-      return;
-    }
+  if (!newsContainer) return;
 
-    newsContainer.innerHTML = "";
-    data.articles.forEach(article => {
-      const articleEl = document.createElement("div");
-      articleEl.classList.add("article");
-      articleEl.innerHTML = `
-        <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
-        <p>${article.description || "No description available."}</p>
-      `;
-      newsContainer.appendChild(articleEl);
+  const apiKey = 'YOUR_API_KEY_HERE'; // Replace this with your real NewsAPI key
+  const url = `https://newsapi.org/v2/top-headlines?category=business&q=marketing&language=en&pageSize=5&apiKey=${apiKey}`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (!data.articles || data.articles.length === 0) {
+        newsContainer.innerHTML = "<p>No articles found.</p>";
+        return;
+      }
+
+      let output = "<ul>";
+      data.articles.forEach(article => {
+        output += `
+          <li style="margin-bottom: 1rem;">
+            <a href="${article.url}" target="_blank" style="color: green; font-weight: bold;">${article.title}</a><br>
+            <span style="color: #444;">${article.description || ''}</span>
+          </li>
+        `;
+      });
+      output += "</ul>";
+      newsContainer.innerHTML = output;
+    })
+    .catch(error => {
+      newsContainer.innerHTML = "<p>There was an error loading news.</p>";
+      console.error("Error fetching news:", error);
     });
-  })
-  .catch(error => {
-    console.error("News fetch error:", error);
-    newsContainer.innerHTML = `<p>Error loading news: ${error.message}</p>`;
-  });
+});
