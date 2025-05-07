@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apply – Influencer Connect</title>
+  <title>Apply - Influencer Connect</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -17,37 +16,36 @@
     </nav>
   </header>
 
-  <section>
-    <h2>Apply to Join</h2>
-    <p>Fill out this form to become a verified creator and collaborate with top brands.</p>
+  <main class="content-box">
+    <h2>Apply to Collaborate</h2>
+    <form id="apply-form" onsubmit="submitForm(event)">
+      <label for="role">I am a:</label>
+      <select id="role" name="role" required>
+        <option value="">Select one</option>
+        <option value="Brand">Brand</option>
+        <option value="Influencer">Influencer</option>
+      </select>
 
-    <form class="apply-form" id="applicationForm">
-      <label for="name">Full Name:</label>
+      <label for="name">Name:</label>
       <input type="text" id="name" name="name" required />
 
-      <label for="email">Email Address:</label>
+      <label for="email">Email:</label>
       <input type="email" id="email" name="email" required />
 
-      <label for="phone">Phone Number:</label>
+      <label for="phone">Phone:</label>
       <input type="tel" id="phone" name="phone" required />
 
-      <button type="submit">Submit Application</button>
+      <button type="submit">Submit</button>
     </form>
-
-    <p id="thankYouMsg" style="display:none; margin-top: 1rem; font-weight: bold; color: green;">
-      Thank you! Your application has been submitted.
-    </p>
-  </section>
+    <p id="thank-you" style="display:none; margin-top:20px;">Thank you for applying! We'll be in touch.</p>
+  </main>
 
   <script>
-    const form = document.getElementById("applicationForm");
-    const thankYouMsg = document.getElementById("thankYouMsg");
-
-    form.addEventListener("submit", function(event) {
-      event.preventDefault(); // Stop actual submission
-      form.style.display = "none";
-      thankYouMsg.style.display = "block";
-    });
+    function submitForm(event) {
+      event.preventDefault();
+      document.getElementById('apply-form').style.display = 'none';
+      document.getElementById('thank-you').style.display = 'block';
+    }
   </script>
 </body>
 </html>
